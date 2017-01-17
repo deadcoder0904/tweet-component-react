@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import FontAwesome from 'react-fontawesome'
+import ReactTooltip from 'react-tooltip'
 import './index.css'
 
 const TwitterHandle = ({handle}) => <a  className="handle" href={`https://twitter.com/${handle.slice(1)}`} target="_blank">{handle}</a>
@@ -8,7 +9,13 @@ const TwitterName = ({name}) => <span  className="name">{name}</span>
 const Time = ({time}) => <span  className="time">{time}</span>
 const Avatar = ({avatar}) => <img className="avatar" src={avatar} alt="Avatar"/>
 const Message = ({msg}) => <div  className="msg">{msg}</div>
-const FontAwesomeComponent = ({name}) => <FontAwesome className="font-awesome-component" size='2x' name={name} />
+const FontAwesomeComponent = ({name, tip}) => {
+	return (
+		<span>
+			<FontAwesome data-tip={tip} className="font-awesome-component" size='2x' name={name} />
+			<ReactTooltip />
+		</span>)
+	}
 
 const TweetDisplay = ({avatar, handle, name, time, msg}) => (
 													<div className="tweet">
@@ -17,10 +24,10 @@ const TweetDisplay = ({avatar, handle, name, time, msg}) => (
 														<TwitterHandle handle={handle}/>
 														<Time time={time}/>
 														<Message msg={msg}/>
-														<FontAwesomeComponent name='reply' />
-														<FontAwesomeComponent name='retweet' />
-														<FontAwesomeComponent name='heart' />
-														<FontAwesomeComponent name='ellipsis-h' />
+														<FontAwesomeComponent name='reply' tip='Reply' />
+														<FontAwesomeComponent name='retweet' tip='Retweet' />
+														<FontAwesomeComponent name='heart' tip='Like' />
+														<FontAwesomeComponent name='ellipsis-h' tip='More' />
 													 </div>
 												)
 
