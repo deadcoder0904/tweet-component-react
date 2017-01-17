@@ -1,4 +1,10 @@
-# react
+# tweet-component-react
+
+> Tweet Component made using React :ghost:
+
+# Screenshot
+
+![tweet-component-react](http://imgur.com/tplgw4y.png)
 
 ## License
 
